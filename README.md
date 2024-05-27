@@ -14,16 +14,29 @@ Visual Studio Code ou Visual Studio
 
 ## Instalação
 
-Clone o repositório:
-bash
-Copiar código
-```git clone https://github.com/seu-usuario/ChaosEngineeringLab.git```
-Navegue até o diretório do projeto:
-bash
-Copiar código
-```cd ChaosEngineeringLab```
-Restaure as dependências do projeto:
-bash
-Copiar código
-```dotnet restore```
+1 - Clone o repositório::
+
+```sh
+git clone https://github.com/seu-usuario/ChaosEngineeringLab.git
+```
+
+2 - Navegue até o diretório do projeto:
+
+```sh
+cd Lab.ChaosEngineering
+```
+
+3 - Restaure as dependências do projeto:
+
+```sh
+dotnet restore
+```
+
+4 - Construir e iniciar os serviços:
+
+```sh
+dotnet run --project src/Lab.ChaosEngineering
+```
+
+
 
