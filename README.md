@@ -38,5 +38,10 @@ dotnet restore
 dotnet run --project src/Lab.ChaosEngineering
 ```
 
+## Introduzindo Falhas
+Os exemplos de Chaos Engineering estão localizados no diretório Chaos dentro do projeto principal. Eles demonstram como introduzir diferentes tipos de falhas na comunicação com serviços externos, como:
 
+Latência artificial
+Falhas de rede
+Exceções simuladas
 
