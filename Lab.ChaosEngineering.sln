@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B38737F2-CF8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A8683925-177D-46A2-A9EB-F953B0F25320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.Domain", "src\Lab.ChaosEngineering.Domain\Lab.ChaosEngineering.Domain.csproj", "{7115FE1F-A3E8-4DA9-A0E4-1649399CC78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Domain", "src\Lab.ChaosEngineering.Domain\Lab.ChaosEngineering.Domain.csproj", "{7115FE1F-A3E8-4DA9-A0E4-1649399CC78F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.AppServices", "src\Lab.ChaosEngineering.AppServices\Lab.ChaosEngineering.AppServices.csproj", "{39212FE5-86D0-4DE8-A0E6-52E0AFE7D84A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.AppServices", "src\Lab.ChaosEngineering.AppServices\Lab.ChaosEngineering.AppServices.csproj", "{39212FE5-86D0-4DE8-A0E6-52E0AFE7D84A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.Infra", "src\Lab.ChaosEngineering.Infra\Lab.ChaosEngineering.Infra.csproj", "{44341B0A-7176-48B4-AA67-EE0A5360F64D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Infra", "src\Lab.ChaosEngineering.Infra\Lab.ChaosEngineering.Infra.csproj", "{44341B0A-7176-48B4-AA67-EE0A5360F64D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.Services", "src\Lab.ChaosEngineering.Services\Lab.ChaosEngineering.Services.csproj", "{CBA40F14-DF38-4FF2-B3B5-2DE4F729B1DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Services", "src\Lab.ChaosEngineering.Services\Lab.ChaosEngineering.Services.csproj", "{CBA40F14-DF38-4FF2-B3B5-2DE4F729B1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.Api", "src\Lab.ChaosEngineering.Api\Lab.ChaosEngineering.Api.csproj", "{46C9C6ED-D274-42CE-8E26-09B6129C668B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Api", "src\Lab.ChaosEngineering.Api\Lab.ChaosEngineering.Api.csproj", "{46C9C6ED-D274-42CE-8E26-09B6129C668B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.UnitTests", "tests\Lab.ChaosEngineering.UnitTests\Lab.ChaosEngineering.UnitTests.csproj", "{A87F758F-A6A7-44B6-AC76-6CD38230B106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.ChaosTests", "tests\Lab.ChaosEngineering.UnitTests\Lab.ChaosEngineering.ChaosTests.csproj", "{A87F758F-A6A7-44B6-AC76-6CD38230B106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.ChaosEngineering.CrossCutting.Ioc", "src\Lab.ChaosEngineering.CrossCutting.Ioc\Lab.ChaosEngineering.CrossCutting.Ioc.csproj", "{439470D7-DBC2-4A16-A158-39213A652569}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.CrossCutting.Ioc", "src\Lab.ChaosEngineering.CrossCutting.Ioc\Lab.ChaosEngineering.CrossCutting.Ioc.csproj", "{439470D7-DBC2-4A16-A158-39213A652569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

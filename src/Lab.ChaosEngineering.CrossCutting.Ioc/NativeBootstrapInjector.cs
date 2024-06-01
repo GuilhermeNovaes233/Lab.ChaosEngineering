@@ -1,5 +1,6 @@
 ﻿using Lab.ChaosEngineering.AppServices.AppServices;
 using Lab.ChaosEngineering.AppServices.Interfaces;
+using Lab.ChaosEngineering.CrossCutting.Ioc.Polly;
 using Lab.ChaosEngineering.Domain.Cache;
 using Lab.ChaosEngineering.Domain.Interfaces.Repository.Payments;
 using Lab.ChaosEngineering.Infra.Cache;
@@ -9,7 +10,7 @@ using Lab.ChaosEngineering.Services.Interfaces;
 using Lab.ChaosEngineering.Services.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Lab.ChaosEngineering.CrossCutting.Ioc
 {
@@ -23,7 +24,15 @@ namespace Lab.ChaosEngineering.CrossCutting.Ioc
 
 			//Infra
 			services.AddScoped<IPaymentRepository, PaymentRepository>();
-			services.AddScoped<IRedisCacheRepository, RedisCacheRepository>();
+
+
+			services.AddScoped<IRedisCacheRepository>(provider =>
+			{
+				var connectionString = configuration.GetConnectionString("Redis");
+				var cachePolicy = RedisCachePolicies.GetDefaultRedisCachePolicy();
+
+				return new RedisCacheRepository(connectionString, cachePolicy);
+			});
 
 			//AppServices
 			services.AddScoped<IPaymentAppService, PaymentAppService>();

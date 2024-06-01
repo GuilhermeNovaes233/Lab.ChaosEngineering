@@ -20,16 +20,14 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.35.0" />
+		<PackageReference Include="Polly" Version="8.4.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
 		<PackageReference Include="System.Drawing.Common" Version="4.7.3" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
 	</ItemGroup>
 	
   <ItemGroup>
     <ProjectReference Include="..\Lab.ChaosEngineering.Domain\Lab.ChaosEngineering.Domain.csproj" />
-  </ItemGroup>
-	
-  <ItemGroup>
-    <Folder Include="Cache\" />
   </ItemGroup>
 
 </Project>

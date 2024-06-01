@@ -1,6 +1,7 @@
 ﻿using Lab.ChaosEngineering.Domain.Cache;
 using Lab.ChaosEngineering.Services.Interfaces;
 using Microsoft.Extensions.Logging;
+using StackExchange.Redis;
 
 namespace Lab.ChaosEngineering.Services.Services
 {
@@ -9,12 +10,12 @@ namespace Lab.ChaosEngineering.Services.Services
 		private const string CacheKeyPrefix = "PaymentLink";
 
 		private readonly ILogger<PayPalPaymentService> _logger;
-		private readonly IRedisCacheRepository _cacheService;
+		private readonly IRedisCacheRepository _cacheRepository;
 
-		public PayPalPaymentService(ILogger<PayPalPaymentService> logger, IRedisCacheRepository cacheService)
+		public PayPalPaymentService(ILogger<PayPalPaymentService> logger, IRedisCacheRepository cacheRepository)
 		{
 			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
-			_cacheService = cacheService ?? throw new ArgumentNullException(nameof(cacheService));
+			_cacheRepository = cacheRepository ?? throw new ArgumentNullException(nameof(_cacheRepository));
 		}
 
 		public async Task<string> GeneratePaymentLinkAsync(decimal amount)
@@ -23,18 +24,25 @@ namespace Lab.ChaosEngineering.Services.Services
 			{
 				_logger.LogInformation("Generating payment link for amount {Amount}.", amount);
 
-				var cachedLink = await _cacheService.GetValueAsync(BuildCacheKey(amount));
+				var cachedLink = await _cacheRepository.GetValueAsync(BuildCacheKey(amount));
 				if (!string.IsNullOrEmpty(cachedLink))
 				{
 					return cachedLink;
 				}
 
-				//TODO - ADICIONAR CHAMADA A SERVIÇO EXTERNO
-				var paymentLink = $"https://www.paypal.com/payment?amount={amount}";
+				//TODO - MOCK 
+				var paymentLink = $"https://www.example.com/payment?amount={amount}";
 
-				await _cacheService.SetValueAsync(BuildCacheKey(amount), paymentLink, TimeSpan.FromHours(1));
+ 				await _cacheRepository.SetValueAsync(BuildCacheKey(amount), paymentLink);
 
 				return paymentLink;
+			}
+			catch (RedisConnectionException)
+			{
+				_logger.LogWarning("Failed to access Redis cache, falling back to external service.");
+
+				//TODO - MOCK 
+				return $"https://www.example.com/payment?amount={amount}";
 			}
 			catch (Exception ex)
 			{
@@ -60,9 +68,6 @@ namespace Lab.ChaosEngineering.Services.Services
 			}
 		}
 
-		private string BuildCacheKey(decimal amount)
-		{
-			return $"{CacheKeyPrefix}_{amount}";
-		}
+		private string BuildCacheKey(decimal amount) => $"{CacheKeyPrefix}_{amount}";
 	}
 }

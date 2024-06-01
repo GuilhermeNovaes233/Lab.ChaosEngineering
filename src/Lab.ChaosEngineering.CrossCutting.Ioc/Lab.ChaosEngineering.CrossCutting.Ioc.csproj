@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Polly" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Lab.ChaosEngineering.AppServices\Lab.ChaosEngineering.AppServices.csproj" />
     <ProjectReference Include="..\Lab.ChaosEngineering.Infra\Lab.ChaosEngineering.Infra.csproj" />
     <ProjectReference Include="..\Lab.ChaosEngineering.Services\Lab.ChaosEngineering.Services.csproj" />
