@@ -1,9 +1,11 @@
 ﻿using Lab.ChaosEngineering.AppServices.AppServices;
 using Lab.ChaosEngineering.AppServices.Interfaces;
 using Lab.ChaosEngineering.Domain.Interfaces.Repository.Payments;
+using Lab.ChaosEngineering.Infra.Context;
 using Lab.ChaosEngineering.Infra.Repositories.Payments;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection; 
 
 namespace Lab.ChaosEngineering.CrossCutting.Ioc
 {
@@ -11,11 +13,15 @@ namespace Lab.ChaosEngineering.CrossCutting.Ioc
 	{
 		public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
 		{
+			//DB
+			services.AddDbContext<DataContext>(options =>
+				options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+			//Infra
+			services.AddScoped<IPaymentRepository, PaymentRepository>();
+
 			//AppServices
 			services.AddScoped<IPaymentAppService, PaymentAppService>();
-
-			// Infra 
-			services.AddScoped<IPaymentRepository, PaymentRepository>();
 		}
 	}
 }
