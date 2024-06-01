@@ -25,7 +25,6 @@ namespace Lab.ChaosEngineering.Services.Polly
 						.Or<RedisConnectionException>()
 						.Or<RedisTimeoutException>()
 						.WaitAndRetryAsync(retryCount, retryAttempt => sleepDurationProvider(retryAttempt)));
-
 		}
 
 		public static AsyncPolicyWrap GetRedisCachePolicyWithFallback(Func<CancellationToken, Task> fallbackAction)
