@@ -10,7 +10,7 @@ namespace Lab.ChaosEngineering.ChaosTests.Payments
 	{
 		private PayPalPaymentService _payPalPaymentService;
 
-		public void Setup()
+		public PayPalPaymentServiceTests()
 		{
 			var serviceProvider = TestServiceProvider.CreateServiceProvider("redis-connection-string");
 
