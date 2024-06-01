@@ -26,36 +26,21 @@ namespace Lab.ChaosEngineering.Api.Controllers
 				return BadRequest("Invalid payment data.");
 			}
 
-			try
-			{
-				var paymentDTO = await _paymentAppService.CreatePaymentAsync(createPaymentDTO);
-				return CreatedAtAction(nameof(GetPaymentById), new { paymentId = paymentDTO.PaymentId }, paymentDTO);
-			}
-			catch (Exception ex)
-			{
-				_logger.LogError(ex, "An error occurred while creating a payment.");
-				return StatusCode(500, "Internal server error.");
-			}
+			var paymentDTO = await _paymentAppService.CreatePaymentAsync(createPaymentDTO);
+
+			return CreatedAtAction(nameof(GetPaymentById), new { paymentId = paymentDTO.PaymentId }, paymentDTO);
 		}
 
 		[HttpGet("{paymentId}")]
 		public async Task<IActionResult> GetPaymentById(Guid paymentId)
 		{
-			try
+			var paymentDTO = await _paymentAppService.GetPaymentByIdAsync(paymentId);
+			if (paymentDTO == null)
 			{
-				var paymentDTO = await _paymentAppService.GetPaymentByIdAsync(paymentId);
-				if (paymentDTO == null)
-				{
-					return NotFound();
-				}
+				return NotFound();
+			}
 
-				return Ok(paymentDTO);
-			}
-			catch (Exception ex)
-			{
-				_logger.LogError(ex, $"An error occurred while getting payment with ID {paymentId}.");
-				return StatusCode(500, "Internal server error.");
-			}
+			return Ok(paymentDTO);
 		}
 
 		[HttpPut("{paymentId}")]
@@ -66,21 +51,13 @@ namespace Lab.ChaosEngineering.Api.Controllers
 				return BadRequest("Invalid payment data.");
 			}
 
-			try
+			var paymentDTO = await _paymentAppService.UpdatePaymentAsync(paymentId, updatePaymentDTO);
+			if (paymentDTO == null)
 			{
-				var paymentDTO = await _paymentAppService.UpdatePaymentAsync(paymentId, updatePaymentDTO);
-				if (paymentDTO == null)
-				{
-					return NotFound();
-				}
+				return NotFound();
+			}
 
-				return Ok(paymentDTO);
-			}
-			catch (Exception ex)
-			{
-				_logger.LogError(ex, $"An error occurred while updating payment with ID {paymentId}.");
-				return StatusCode(500, "Internal server error.");
-			}
+			return Ok(paymentDTO);
 		}
 	}
 }
