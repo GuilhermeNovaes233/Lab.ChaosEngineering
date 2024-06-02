@@ -1,9 +1,9 @@
 # Chaos Engineering Laboratory
 
-Bem-vindo ao projeto de Laboratório de Chaos Engineering em C#! Este repositório contém conceitos de Chaos Engineering na comunicação com bancos, redis e serviços externos usando C#. O objetivo é demonstrar como introduzir e mitigar falhas de maneira controlada para melhorar a resiliência do sistema.
+Bem-vindo ao projeto de Laboratório de Chaos Engineering em C#! Este repositório contém conceitos de Chaos Engineering na comunicação redis e serviços externos usando C#. O objetivo é demonstrar como introduzir e mitigar falhas de maneira controlada para melhorar a resiliência do sistema.
 
 ## Introdução
-Chaos Engineering é a prática de experimentar em um sistema ao induzir falhas controladas para construir confiança na capacidade do sistema de suportar condições adversas. Este projeto foca em aplicar Chaos Engineering em interações com serviços externos usando C#.
+Chaos Engineering é a prática de experimentar em um sistema ao induzir falhas controladas para construir confiança na capacidade do sistema de suportar condições adversas. Este projeto foca em aplicar Chaos Engineering em interações com redis e serviços externos usando C#.
 
 ## Pré-requisitos
 Antes de começar, certifique-se de ter o seguinte software instalado:
@@ -39,7 +39,7 @@ dotnet run --project src/Lab.ChaosEngineering
 ```
 
 ## Introduzindo Falhas
-Os exemplos de Chaos Engineering estão localizados no diretório Chaos dentro do projeto principal. Eles demonstram como introduzir diferentes tipos de falhas na comunicação com serviços externos, como:
+Os exemplos de Chaos Engineering estão localizados no diretório Chaos dentro do projeto principal. Eles demonstram como introduzir diferentes tipos de falhas na comunicação com serviços externos e redis, como:
 
 Latência artificial
 Falhas de rede
