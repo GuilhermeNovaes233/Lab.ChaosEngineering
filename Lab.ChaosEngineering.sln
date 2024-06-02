@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.Api", "src\Lab.ChaosEngineering.Api\Lab.ChaosEngineering.Api.csproj", "{46C9C6ED-D274-42CE-8E26-09B6129C668B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.ChaosTests", "tests\Lab.ChaosEngineering.UnitTests\Lab.ChaosEngineering.ChaosTests.csproj", "{A87F758F-A6A7-44B6-AC76-6CD38230B106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.ChaosTests", "tests\Lab.ChaosEngineering.ChaosTests\Lab.ChaosEngineering.ChaosTests.csproj", "{A87F758F-A6A7-44B6-AC76-6CD38230B106}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab.ChaosEngineering.CrossCutting.Ioc", "src\Lab.ChaosEngineering.CrossCutting.Ioc\Lab.ChaosEngineering.CrossCutting.Ioc.csproj", "{439470D7-DBC2-4A16-A158-39213A652569}"
 EndProject
