@@ -1,5 +1,6 @@
 ﻿using Lab.ChaosEngineering.Domain.Cache;
 using Lab.ChaosEngineering.Infra.Repositories.Cache;
+using Lab.ChaosEngineering.Services.Interfaces;
 using Lab.ChaosEngineering.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
@@ -35,7 +36,7 @@ namespace Lab.ChaosEngineering.ChaosTests.Providers
 
 					return new RedisCacheRepository(redisConnectionString, cachePolicy);
 				})
-				.AddTransient<PayPalPaymentService>()
+				.AddTransient<IPayPalPaymentService, PayPalPaymentService>()
 				.BuildServiceProvider();
 		}
 	}
